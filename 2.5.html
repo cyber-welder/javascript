@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+		function add(x, y) {
+		    return x + y;
+		}
+
+		function sub(x, y) {
+		    return x - y;
+		}
+
+		function mult(x, y) {
+		    return x * y;
+		}
+
+		function div(x, y) {
+		    return x / y;
+		}
+
+		function binar(x, y, operation) {
+		    switch (operation) {
+		        case '+':
+		            return add(x, y);
+		        case '-':
+		            return sub(x, y);
+		        case '*':
+		            return mult(x, y);
+		        case '/':
+		            return div(x, y);
+		        default:
+		            alert("Нет такой операции: " + operation);
+		    }
+		}
+
+		console.log(binar(5,4,'*'));
+
+    </script>
+</body>
+
+</html>
