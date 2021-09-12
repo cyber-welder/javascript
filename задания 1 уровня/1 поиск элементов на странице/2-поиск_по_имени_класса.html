@@ -16,7 +16,13 @@
     и выведите их в консоль. -->
 
     <script>
-        
+
+        'use strict';
+
+        let obj = document.getElementsByClassName('one');
+
+        for(let i=0; i<obj.length; i++) console.log(obj[i].textContent);
+
     </script>
 </body>
 </html>

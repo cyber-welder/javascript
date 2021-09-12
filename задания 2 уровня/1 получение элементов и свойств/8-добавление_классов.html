@@ -19,7 +19,19 @@
     -->
 
     <script>
-        
+
+        'use strict';
+
+        let obj = document.querySelectorAll('b');
+
+        obj.forEach(function(b) {
+
+            if (!b.classList.contains('sign')) { b.classList.add('sign') }
+
+        });
+
+        console.log(obj);
+
     </script>
 </body>
 </html>
