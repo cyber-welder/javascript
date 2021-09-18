@@ -75,6 +75,15 @@ const products = {
     ],
 };
 
+let objs = document.querySelector(".products");
+
+let bs = document.querySelectorAll("button");
+
+bs.forEach(function (b) {
+
+    b.addEventListener("click", clickHandler);
+
+});
 
 /**
  * Эта функция должна вызываться при клике по кнопкам.
@@ -85,6 +94,10 @@ function clickHandler(event) {
     
     //в showCategory надо передать строку с типом категории, тип берите
     //из атрибута data-type у кнопки, по которой кликнули.
+
+    objs.innerHTML = "";
+
+    showCategory(event.target.getAttribute('data-type'));
     
 }
 
@@ -96,7 +109,15 @@ function clickHandler(event) {
  * по которой кликнули.
  */
 function showCategory(category) {
-    
+
+    let obj = products[category];
+
+    let content = "";
+
+    obj.forEach(function (e) { content += getProductMarkup(e) });
+
+    objs.insertAdjacentHTML("afterbegin", content);
+
 }
 
 /**
@@ -110,4 +131,13 @@ function showCategory(category) {
  */
 function getProductMarkup(product) {
 
+    let result = `<div class="product">
+                  <div>${product.name}</div>
+                  <img src="${product.imageUrl}" alt="">
+                  <div>${product.price}</div>
+                  <a href="https://example.com/producs/${product.id}">Подробнее</a>
+              </div>`;
+        
+    return result;
+    
 }

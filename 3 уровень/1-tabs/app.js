@@ -1,4 +1,5 @@
 'use strict';
+
 const texts = {
     text1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     text2: 'Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.',
@@ -12,6 +13,16 @@ const texts = {
     обработчик клика функцию clickHandler.
 */
 
+let obj = document.querySelector('.text');
+
+let objs = document.querySelectorAll('.nav-link');
+
+objs.forEach(function(link) {
+
+    link.addEventListener('click', clickHandler);
+
+});
+
 
 /**
  * Обработчик клика по .nav-link
@@ -21,6 +32,9 @@ function clickHandler(event) {
     // здесь вызывайте changeText и changeActiveClass, и передавайте
     // им объект события.
    
+    changeText(event);
+    changeActiveClass(event);
+
 }
 
 /**
@@ -29,7 +43,11 @@ function clickHandler(event) {
  * @param {MouseEvent} event 
  */
 function changeActiveClass(event) {
-    
+
+    document.querySelector('.active').classList.remove('active');
+
+    event.target.classList.add('active');
+
 }
 
 /**
@@ -39,5 +57,17 @@ function changeActiveClass(event) {
  * @param {MouseEvent} event 
  */
 function changeText(event) {
+
+    if (event.target.textContent == "Link 1") {
+        obj.textContent = texts.text1
+    } else {
+        if (event.target.textContent == "Link 2") {
+            obj.textContent = texts.text2
+        } else {
+            if (event.target.textContent == "Link 3") {
+                obj.textContent = texts.text3
+            }
+        }
+    }
     
 }

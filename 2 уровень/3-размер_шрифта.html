@@ -22,7 +22,19 @@
     
 
     <script>
-        
+
+        'use strict';
+
+        let obj1 = document.querySelector('input');
+        let obj2 = document.querySelector('div');
+
+        obj1.addEventListener('input', function(event) {
+
+            obj2.style.fontSize = event.target.value + 'px'
+
+        })
+
     </script>
+
 </body>
 </html>

@@ -20,7 +20,22 @@
     -->
 
     <script>
-        
+
+        'use strict';
+
+        let obj = document.querySelectorAll('button');
+
+        obj.forEach(function(b) {
+
+            b.addEventListener('click', function(e) {
+
+                console.log(e.target.dataset.id + ' <-> ' + e.target.dataset.value);
+
+            });
+
+        });
+
     </script>
+
 </body>
 </html>
